@@ -5,42 +5,42 @@ const round1Questions = [
             {
                 value: 100,
                 questionType: "image",
-                question: "assets/images/yo-te-conozco/100-fragmento.webp",
+                question: "assets/images/yo-te-conozco/100-fragmento.jpg",
 
                 answerType: "image",
-                answer: "assets/images/yo-te-conozco/100-completa.jpg"
+                answer: "assets/images/yo-te-conozco/100-completa.webp"
             },
             {
                 value: 200,
-                questionType: "text",
-                question: "Pregunta de prueba de 200",
+                questionType: "image",
+                question: "assets/images/yo-te-conozco/200-fragmento.jpg",
 
-                answerType: "text",
-                answer: "Respuesta de prueba"
+                answerType: "image",
+                answer: "assets/images/yo-te-conozco/200-completa.webp"
             },
             {
                 value: 300,
-                questionType: "text",
-                question: "Pregunta de prueba de 300",
+                questionType: "image",
+                question: "assets/images/yo-te-conozco/300-fragmento.jpg",
 
-                answerType: "text",
-                answer: "Respuesta de prueba"
+                answerType: "image",
+                answer: "assets/images/yo-te-conozco/300-completa.jpg"
             },
             {
                 value: 400,
-                questionType: "text",
-                question: "Pregunta de prueba de 400",
+                questionType: "image",
+                question: "assets/images/yo-te-conozco/400-fragmento.jpg",
 
-                answerType: "text",
-                answer: "Respuesta de prueba"
+                answerType: "image",
+                answer: "assets/images/yo-te-conozco/400-completa.webp"
             },
             {
                 value: 500,
-                questionType: "text",
-                question: "Pregunta de prueba de 500",
+                questionType: "image",
+                question: "assets/images/yo-te-conozco/500-fragmento.jpg",
 
-                answerType: "text",
-                answer: "Respuesta de prueba"
+                answerType: "image",
+                answer: "assets/images/yo-te-conozco/500-completa.webp"
             }
         ]
     },
@@ -146,39 +146,39 @@ const round1Questions = [
                 question: "assets/audio/karaoke-night/100.mp3",
 
                 answerType: "text",
-                answer: "Canción de prueba"
+                answer: "Mi Corazon Encantado - Dragon Ball GT"
             },
             {
                 value: 200,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "audio",
+                question: "assets/audio/karaoke-night/200.mp3",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Blue bird - Naruto Shippuden"
             },
             {
                 value: 300,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "audio",
+                question: "assets/audio/karaoke-night/300.mp3",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Peace sign - Boku no Hero"
             },
             {
                 value: 400,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "audio",
+                question: "assets/audio/karaoke-night/400.mp3",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Jiyuu no tsubasa - Shingeki no Kyojin"
             },
             {
                 value: 500,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "audio",
+                question: "assets/audio/karaoke-night/500.mp3",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Casanova posse - Dr. Stone"
             }
         ]
     },
@@ -245,35 +245,35 @@ const round2Questions = [
             },
             {
                 value: 400,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "image",
+                question: "assets/images/prendan-la-luz/400-silueta.png",
 
-                answerType: "text",
-                answer: "Respuesta temporal"
+                answerType: "image",
+                answer: "assets/images/prendan-la-luz/400-respuesta.webp"
             },
             {
                 value: 600,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "image",
+                question: "assets/images/prendan-la-luz/600-silueta.png",
 
-                answerType: "text",
-                answer: "Respuesta temporal"
+                answerType: "image",
+                answer: "assets/images/prendan-la-luz/600-respuesta.webp"
             },
             {
                 value: 800,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "image",
+                question: "assets/images/prendan-la-luz/800-silueta.png",
 
-                answerType: "text",
-                answer: "Respuesta temporal"
+                answerType: "image",
+                answer: "assets/images/prendan-la-luz/800-respuesta.webp"
             },
             {
                 value: 1000,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "image",
+                question: "assets/images/prendan-la-luz/1000-silueta.png",
 
-                answerType: "text",
-                answer: "Respuesta temporal"
+                answerType: "image",
+                answer: "assets/images/prendan-la-luz/1000-respuesta.webp"
             }
         ]
     },
@@ -287,39 +287,39 @@ const round2Questions = [
                 question: "assets/audio/karaoke-must-go-on/200.mp3",
 
                 answerType: "text",
-                answer: "Canción de prueba"
+                answer: "Kizuato - Given"
             },
             {
                 value: 400,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "audio",
+                question: "assets/audio/karaoke-must-go-on/400.mp3",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Cry Baby - Tokyo revengers"
             },
             {
                 value: 600,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "audio",
+                question: "assets/audio/karaoke-must-go-on/600.mp3",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Papermoon - Soul eater"
             },
             {
                 value: 800,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "audio",
+                question: "assets/audio/karaoke-must-go-on/800.mp3",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Flyers - Death parade"
             },
             {
                 value: 1000,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "audio",
+                question: "assets/audio/karaoke-must-go-on/1000.mp3",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Monochrome no kiss - Kuroshitsuji"
             }
         ]
     },
