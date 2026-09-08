@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jeopardy</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- PANTALLA INICIAL -->
+    <!-- ========================= -->
+
+    <section id="startScreen" class="screen active">
+
+        <h1 class="logo">JEOPARDY</h1>
+
+        <p>¿Están listos?</p>
+
+        <button id="startButton" class="main-button">
+            JUGAR
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- CONFIGURACIÓN DE EQUIPOS -->
+    <!-- ========================= -->
+
+    <section id="setupScreen" class="screen">
+
+        <h2>CONFIGURACIÓN</h2>
+
+        <p>¿Cuántos equipos van a jugar?</p>
+
+        <div class="team-count-buttons">
+
+            <button class="team-count" data-count="1">
+                1
+            </button>
+
+            <button class="team-count" data-count="2">
+                2
+            </button>
+
+            <button class="team-count" data-count="3">
+                3
+            </button>
+
+            <button class="team-count" data-count="4">
+                4
+            </button>
+
+        </div>
+
+
+        <!-- Aquí se generan los inputs de los nombres -->
+        <div id="teamNames"></div>
+
+
+        <button
+            id="beginGameButton"
+            class="main-button hidden"
+        >
+            COMENZAR
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TABLERO -->
+    <!-- ========================= -->
+
+    <section id="gameScreen" class="screen">
+
+        <header class="game-header">
+
+            <div>
+                <h2 id="roundTitle">
+                    RONDA 1
+                </h2>
+            </div>
+
+
+            <button
+                id="resetButton"
+                class="secondary-button"
+            >
+                Reiniciar
+            </button>
+
+        </header>
+
+
+        <!-- MARCADOR -->
+
+        <div
+            id="scoreboard"
+            class="scoreboard"
+        ></div>
+
+
+        <!-- TABLERO JEOPARDY -->
+
+        <div
+            id="board"
+            class="board"
+        ></div>
+
+
+        <!--
+        Este botón permanece oculto
+        hasta que se terminen las preguntas
+        -->
+
+        <button
+            id="continueButton"
+            class="main-button hidden continue-button"
+        >
+            CONTINUAR
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PANTALLA DE PREGUNTA -->
+    <!-- ========================= -->
+
+    <section id="questionScreen" class="screen">
+
+        <div class="question-info">
+
+            <span id="questionCategory"></span>
+
+            <span id="questionValue"></span>
+
+        </div>
+
+
+        <div class="question-content">
+
+            <h2 id="questionText"></h2>
+
+
+            <div
+                id="answerContainer"
+                class="answer-container hidden"
+            >
+
+                <p>RESPUESTA</p>
+
+                <h3 id="answerText"></h3>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="showAnswerButton"
+            class="main-button"
+        >
+            MOSTRAR RESPUESTA
+        </button>
+
+
+        <button
+            id="returnBoardButton"
+            class="secondary-button hidden"
+        >
+            VOLVER AL TABLERO
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- FIN DE RONDA / MARCADORES -->
+    <!-- ========================= -->
+
+    <section
+        id="roundSummaryScreen"
+        class="screen"
+    >
+
+        <h2 id="summaryTitle">
+            FIN DE LA RONDA 1
+        </h2>
+
+
+        <div
+            id="summaryScores"
+            class="summary-scores"
+        ></div>
+
+
+        <button
+            id="nextRoundButton"
+            class="main-button"
+        >
+            IR A RONDA 2
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- RESULTADOS FINALES -->
+    <!-- ========================= -->
+
+    <section
+        id="finalScreen"
+        class="screen"
+    >
+
+        <h2>
+            RESULTADOS FINALES
+        </h2>
+
+
+        <div
+            id="finalScores"
+            class="summary-scores"
+        ></div>
+
+
+        <button
+            id="newGameButton"
+            class="main-button"
+        >
+            NUEVA PARTIDA
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <!--
+    questions.js debe ir primero
+    porque game.js utiliza las preguntas
+    -->
+
+    <script src="js/questions.js"></script>
+
+    <script src="js/game.js"></script>
+
+</body>
+</html>
