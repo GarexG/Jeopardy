@@ -417,3 +417,97 @@ button {
 #resumeButton {
     margin-top: 15px;
 }
+/* ============================= */
+/* PREGUNTAS MULTIMEDIA */
+/* ============================= */
+
+.question-content {
+    width: min(1100px, 95%);
+    min-height: 430px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.question-media,
+.answer-media {
+    max-width: 100%;
+}
+
+
+.question-image,
+.answer-image {
+    max-width: min(900px, 90vw);
+    max-height: 60vh;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+}
+
+
+.audio-question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+
+.audio-play-button {
+    padding: 30px 50px;
+
+    font-size: 1.7rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    border-radius: 12px;
+
+    border: 3px solid white;
+
+    background: #11187e;
+
+    color: white;
+}
+
+
+.audio-play-button:hover {
+    transform: scale(1.04);
+}
+
+
+.answer-container {
+    margin-top: 30px;
+
+    width: 100%;
+
+    text-align: center;
+}
+
+
+.answer-label {
+    font-size: 1.2rem;
+
+    opacity: 0.8;
+}
+
+
+#answerText {
+    font-size: 2.5rem;
+}
+
+
+#resumeButton {
+    margin-top: 15px;
+}
+.hidden {
+    display: none !important;
+}

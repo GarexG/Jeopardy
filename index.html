@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
 <body>
 
     <!-- ========================= -->
-    <!-- PANTALLA INICIAL -->
+    <!-- INICIO -->
     <!-- ========================= -->
 
     <section id="startScreen" class="screen active">
@@ -25,7 +26,6 @@
             JUGAR
         </button>
 
-        
         <button id="resumeButton" class="secondary-button hidden">
             CONTINUAR PARTIDA
         </button>
@@ -34,7 +34,7 @@
 
 
     <!-- ========================= -->
-    <!-- CONFIGURACIÓN DE EQUIPOS -->
+    <!-- CONFIGURACIÓN -->
     <!-- ========================= -->
 
     <section id="setupScreen" class="screen">
@@ -45,33 +45,19 @@
 
         <div class="team-count-buttons">
 
-            <button class="team-count" data-count="1">
-                1
-            </button>
+            <button class="team-count" data-count="1">1</button>
 
-            <button class="team-count" data-count="2">
-                2
-            </button>
+            <button class="team-count" data-count="2">2</button>
 
-            <button class="team-count" data-count="3">
-                3
-            </button>
+            <button class="team-count" data-count="3">3</button>
 
-            <button class="team-count" data-count="4">
-                4
-            </button>
+            <button class="team-count" data-count="4">4</button>
 
         </div>
 
-
-        <!-- Aquí se generan los inputs de los nombres -->
         <div id="teamNames"></div>
 
-
-        <button
-            id="beginGameButton"
-            class="main-button hidden"
-        >
+        <button id="beginGameButton" class="main-button hidden">
             COMENZAR
         </button>
 
@@ -86,56 +72,35 @@
 
         <header class="game-header">
 
-            <div>
-                <h2 id="roundTitle">
-                    RONDA 1
-                </h2>
-            </div>
+            <h2 id="roundTitle">
+                RONDA 1
+            </h2>
 
-
-            <button
-                id="resetButton"
-                class="secondary-button"
-            >
+            <button id="resetButton" class="secondary-button">
                 Reiniciar
             </button>
 
         </header>
 
 
-        <!-- MARCADOR -->
-
-        <div
-            id="scoreboard"
-            class="scoreboard"
-        ></div>
+        <div id="scoreboard" class="scoreboard"></div>
 
 
-        <!-- TABLERO JEOPARDY -->
-
-        <div
-            id="board"
-            class="board"
-        ></div>
+        <div id="board" class="board"></div>
 
 
-        <!--
-        Este botón permanece oculto
-        hasta que se terminen las preguntas
-        -->
+        <button id="continueButton"
+                class="main-button hidden continue-button">
 
-        <button
-            id="continueButton"
-            class="main-button hidden continue-button"
-        >
             CONTINUAR
+
         </button>
 
     </section>
 
 
     <!-- ========================= -->
-    <!-- PANTALLA DE PREGUNTA -->
+    <!-- PREGUNTA -->
     <!-- ========================= -->
 
     <section id="questionScreen" class="screen">
@@ -151,113 +116,135 @@
 
         <div class="question-content">
 
-            <h2 id="questionText"></h2>
+            <!-- TEXTO DE PREGUNTA -->
+
+            <h2 id="questionText"
+                class="question-media hidden">
+            </h2>
 
 
-            <div
-                id="answerContainer"
-                class="answer-container hidden"
-            >
+            <!-- IMAGEN DE PREGUNTA -->
 
-                <p>RESPUESTA</p>
+            <img id="questionImage"
+                 class="question-image question-media hidden"
+                 alt="Imagen de pregunta">
 
-                <h3 id="answerText"></h3>
+
+            <!-- AUDIO DE PREGUNTA -->
+
+            <div id="questionAudioContainer"
+                 class="audio-question question-media hidden">
+
+                <button id="playAudioButton"
+                        class="audio-play-button">
+
+                    ▶ REPRODUCIR AUDIO
+
+                </button>
+
+                <audio id="questionAudio"></audio>
+
+            </div>
+
+
+            <!-- RESPUESTA -->
+
+            <div id="answerContainer"
+                 class="answer-container hidden">
+
+                <p class="answer-label">
+                    RESPUESTA
+                </p>
+
+
+                <!-- TEXTO RESPUESTA -->
+
+                <h3 id="answerText"
+                    class="answer-media hidden">
+                </h3>
+
+
+                <!-- IMAGEN RESPUESTA -->
+
+                <img id="answerImage"
+                     class="answer-image answer-media hidden"
+                     alt="Imagen de respuesta">
 
             </div>
 
         </div>
 
 
-        <button
-            id="showAnswerButton"
-            class="main-button"
-        >
+        <button id="showAnswerButton"
+                class="main-button">
+
             MOSTRAR RESPUESTA
+
         </button>
 
 
-        <button
-            id="returnBoardButton"
-            class="secondary-button hidden"
-        >
+        <button id="returnBoardButton"
+                class="secondary-button hidden">
+
             VOLVER AL TABLERO
+
         </button>
 
     </section>
 
 
     <!-- ========================= -->
-    <!-- FIN DE RONDA / MARCADORES -->
+    <!-- ENTRE RONDAS -->
     <!-- ========================= -->
 
-    <section
-        id="roundSummaryScreen"
-        class="screen"
-    >
+    <section id="roundSummaryScreen" class="screen">
 
         <h2 id="summaryTitle">
             FIN DE LA RONDA 1
         </h2>
 
+        <div id="summaryScores"
+             class="summary-scores">
+        </div>
 
-        <div
-            id="summaryScores"
-            class="summary-scores"
-        ></div>
+        <button id="nextRoundButton"
+                class="main-button">
 
-
-        <button
-            id="nextRoundButton"
-            class="main-button"
-        >
             IR A RONDA 2
+
         </button>
 
     </section>
 
 
     <!-- ========================= -->
-    <!-- RESULTADOS FINALES -->
+    <!-- RESULTADOS -->
     <!-- ========================= -->
 
-    <section
-        id="finalScreen"
-        class="screen"
-    >
+    <section id="finalScreen" class="screen">
 
         <h2>
             RESULTADOS FINALES
         </h2>
 
+        <div id="finalScores"
+             class="summary-scores">
+        </div>
 
-        <div
-            id="finalScores"
-            class="summary-scores"
-        ></div>
+        <button id="newGameButton"
+                class="main-button">
 
-
-        <button
-            id="newGameButton"
-            class="main-button"
-        >
             NUEVA PARTIDA
+
         </button>
 
     </section>
 
-
-    <!-- ========================= -->
-    <!-- JAVASCRIPT -->
-    <!-- ========================= -->
-
-    <!--
-    questions.js debe ir primero
-    porque game.js utiliza las preguntas
-    -->
 
     <script src="js/questions.js"></script>
 
     <script src="js/game.js"></script>
 
 </body>
+
 </html>

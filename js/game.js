@@ -26,21 +26,48 @@ const continueButton = document.getElementById("continueButton");
 
 const questionCategory = document.getElementById("questionCategory");
 const questionValue = document.getElementById("questionValue");
+
 const questionText = document.getElementById("questionText");
+const questionImage = document.getElementById("questionImage");
 
-const answerContainer = document.getElementById("answerContainer");
-const answerText = document.getElementById("answerText");
+const questionAudioContainer =
+    document.getElementById("questionAudioContainer");
 
-const showAnswerButton = document.getElementById("showAnswerButton");
-const returnBoardButton = document.getElementById("returnBoardButton");
+const questionAudio =
+    document.getElementById("questionAudio");
 
-const summaryTitle = document.getElementById("summaryTitle");
-const summaryScores = document.getElementById("summaryScores");
+const playAudioButton =
+    document.getElementById("playAudioButton");
 
-const nextRoundButton = document.getElementById("nextRoundButton");
+const answerContainer =
+    document.getElementById("answerContainer");
 
-const finalScores = document.getElementById("finalScores");
-const newGameButton = document.getElementById("newGameButton");
+const answerText =
+    document.getElementById("answerText");
+
+const answerImage =
+    document.getElementById("answerImage");
+
+const showAnswerButton =
+    document.getElementById("showAnswerButton");
+
+const returnBoardButton =
+    document.getElementById("returnBoardButton");
+
+const summaryTitle =
+    document.getElementById("summaryTitle");
+
+const summaryScores =
+    document.getElementById("summaryScores");
+
+const nextRoundButton =
+    document.getElementById("nextRoundButton");
+
+const finalScores =
+    document.getElementById("finalScores");
+
+const newGameButton =
+    document.getElementById("newGameButton");
 
 
 /* ===================================================== */
@@ -59,20 +86,8 @@ let answeredQuestions = 0;
 
 let selectedCell = null;
 
+let currentQuestion = null;
 
-/*
-Aquí guardaremos qué preguntas ya fueron usadas.
-
-Ejemplo:
-
-usedQuestions = {
-    1: ["0-100", "2-300"],
-    2: ["1-400"]
-}
-
-0-100 significa:
-categoría 0, pregunta de 100 puntos.
-*/
 
 let usedQuestions = {
     1: [],
@@ -102,7 +117,7 @@ const round2Values = [
 
 
 /* ===================================================== */
-/* LOCAL STORAGE */
+/* GUARDADO */
 /* ===================================================== */
 
 const SAVE_KEY = "jeopardySave";
@@ -116,9 +131,11 @@ function saveGame() {
 
         currentRound: currentRound,
 
-        currentQuestionValue: currentQuestionValue,
+        currentQuestionValue:
+            currentQuestionValue,
 
-        usedQuestions: usedQuestions
+        usedQuestions:
+            usedQuestions
     };
 
 
@@ -194,7 +211,7 @@ function loadSavedGame() {
     } catch (error) {
 
         console.error(
-            "Error cargando la partida:",
+            "Error cargando partida:",
             error
         );
 
@@ -271,10 +288,6 @@ startButton.addEventListener(
 );
 
 
-/* ===================================================== */
-/* CONTINUAR PARTIDA GUARDADA */
-/* ===================================================== */
-
 resumeButton.addEventListener(
     "click",
     () => {
@@ -305,7 +318,7 @@ resumeButton.addEventListener(
 
 
 /* ===================================================== */
-/* SELECCIÓN DE EQUIPOS */
+/* EQUIPOS */
 /* ===================================================== */
 
 teamCountButtons.forEach(button => {
@@ -338,7 +351,6 @@ teamCountButtons.forEach(button => {
             createTeamInputs();
         }
     );
-
 });
 
 
@@ -390,7 +402,7 @@ function createTeamInputs() {
 
 
 /* ===================================================== */
-/* COMENZAR NUEVA PARTIDA */
+/* COMENZAR */
 /* ===================================================== */
 
 beginGameButton.addEventListener(
@@ -449,7 +461,6 @@ beginGameButton.addEventListener(
 
         saveGame();
 
-
         createScoreboard();
 
         loadRound();
@@ -500,15 +511,13 @@ function createScoreboard() {
 
                     <button
                         class="subtract-score"
-                        data-team="${index}"
-                    >
+                        data-team="${index}">
                         −
                     </button>
 
                     <button
                         class="add-score"
-                        data-team="${index}"
-                    >
+                        data-team="${index}">
                         +
                     </button>
 
@@ -524,9 +533,7 @@ function createScoreboard() {
 
 
     document
-        .querySelectorAll(
-            ".add-score"
-        )
+        .querySelectorAll(".add-score")
         .forEach(button => {
 
             button.addEventListener(
@@ -549,9 +556,7 @@ function createScoreboard() {
 
 
     document
-        .querySelectorAll(
-            ".subtract-score"
-        )
+        .querySelectorAll(".subtract-score")
         .forEach(button => {
 
             button.addEventListener(
@@ -594,7 +599,7 @@ function changeScore(
 
 
 /* ===================================================== */
-/* CARGAR RONDA */
+/* RONDAS */
 /* ===================================================== */
 
 function loadRound() {
@@ -656,8 +661,6 @@ function createBoard(
         "";
 
 
-    /* CATEGORÍAS */
-
     roundQuestions.forEach(
         categoryData => {
 
@@ -683,8 +686,6 @@ function createBoard(
     );
 
 
-    /* PREGUNTAS */
-
     values.forEach(value => {
 
         roundQuestions.forEach(
@@ -708,10 +709,6 @@ function createBoard(
                     value;
 
 
-                cell.dataset.value =
-                    value;
-
-
                 const questionId =
                     `${categoryIndex}-${value}`;
 
@@ -719,11 +716,6 @@ function createBoard(
                 cell.dataset.questionId =
                     questionId;
 
-
-                /*
-                Si la pregunta ya estaba usada
-                antes de recargar:
-                */
 
                 if (
                     usedQuestions[
@@ -769,11 +761,9 @@ function createBoard(
                             cell;
 
 
-                        /*
-                        Guardamos aquí también
-                        para conservar el valor
-                        actual aunque recarguemos.
-                        */
+                        currentQuestion =
+                            question;
+
 
                         saveGame();
 
@@ -796,12 +786,10 @@ function createBoard(
 
 
 /* ===================================================== */
-/* MARCAR CASILLA USADA */
+/* CASILLA USADA */
 /* ===================================================== */
 
-function markCellAsUsed(
-    cell
-) {
+function markCellAsUsed(cell) {
 
     cell.classList.add(
         "used"
@@ -822,13 +810,71 @@ function markCellAsUsed(
 
 
 /* ===================================================== */
-/* PREGUNTA */
+/* LIMPIAR PANTALLA MULTIMEDIA */
+/* ===================================================== */
+
+function resetQuestionMedia() {
+
+    questionText.classList.add(
+        "hidden"
+    );
+
+    questionImage.classList.add(
+        "hidden"
+    );
+
+    questionAudioContainer.classList.add(
+        "hidden"
+    );
+
+
+    answerText.classList.add(
+        "hidden"
+    );
+
+    answerImage.classList.add(
+        "hidden"
+    );
+
+
+    questionText.textContent =
+        "";
+
+    questionImage.src =
+        "";
+
+    answerText.textContent =
+        "";
+
+    answerImage.src =
+        "";
+
+
+    questionAudio.pause();
+
+    questionAudio.currentTime =
+        0;
+
+    questionAudio.src =
+        "";
+
+
+    playAudioButton.textContent =
+        "▶ REPRODUCIR AUDIO";
+}
+
+
+/* ===================================================== */
+/* PREGUNTA MULTIMEDIA */
 /* ===================================================== */
 
 function openQuestion(
     category,
     question
 ) {
+
+    resetQuestionMedia();
+
 
     questionCategory.textContent =
         category;
@@ -838,12 +884,55 @@ function openQuestion(
         `${question.value} PUNTOS`;
 
 
-    questionText.textContent =
-        question.question;
+    /* PREGUNTA DE TEXTO */
+
+    if (
+        question.questionType ===
+        "text"
+    ) {
+
+        questionText.textContent =
+            question.question;
 
 
-    answerText.textContent =
-        question.answer;
+        questionText.classList.remove(
+            "hidden"
+        );
+    }
+
+
+    /* PREGUNTA DE IMAGEN */
+
+    else if (
+        question.questionType ===
+        "image"
+    ) {
+
+        questionImage.src =
+            question.question;
+
+
+        questionImage.classList.remove(
+            "hidden"
+        );
+    }
+
+
+    /* PREGUNTA DE AUDIO */
+
+    else if (
+        question.questionType ===
+        "audio"
+    ) {
+
+        questionAudio.src =
+            question.question;
+
+
+        questionAudioContainer.classList.remove(
+            "hidden"
+        );
+    }
 
 
     answerContainer.classList.add(
@@ -851,12 +940,12 @@ function openQuestion(
     );
 
 
-    returnBoardButton.classList.add(
+    showAnswerButton.classList.remove(
         "hidden"
     );
 
 
-    showAnswerButton.classList.remove(
+    returnBoardButton.classList.add(
         "hidden"
     );
 
@@ -868,6 +957,37 @@ function openQuestion(
 
 
 /* ===================================================== */
+/* AUDIO */
+/* ===================================================== */
+
+playAudioButton.addEventListener(
+    "click",
+    () => {
+
+        if (
+            questionAudio.paused
+        ) {
+
+            questionAudio.currentTime =
+                0;
+
+
+            questionAudio.play();
+
+
+            playAudioButton.textContent =
+                "↻ REPRODUCIR DE NUEVO";
+
+        } else {
+
+            questionAudio.currentTime =
+                0;
+        }
+    }
+);
+
+
+/* ===================================================== */
 /* MOSTRAR RESPUESTA */
 /* ===================================================== */
 
@@ -875,9 +995,42 @@ showAnswerButton.addEventListener(
     "click",
     () => {
 
+        questionAudio.pause();
+
+
         answerContainer.classList.remove(
             "hidden"
         );
+
+
+        if (
+            currentQuestion.answerType ===
+            "text"
+        ) {
+
+            answerText.textContent =
+                currentQuestion.answer;
+
+
+            answerText.classList.remove(
+                "hidden"
+            );
+        }
+
+
+        else if (
+            currentQuestion.answerType ===
+            "image"
+        ) {
+
+            answerImage.src =
+                currentQuestion.answer;
+
+
+            answerImage.classList.remove(
+                "hidden"
+            );
+        }
 
 
         showAnswerButton.classList.add(
@@ -893,12 +1046,18 @@ showAnswerButton.addEventListener(
 
 
 /* ===================================================== */
-/* VOLVER AL TABLERO */
+/* VOLVER */
 /* ===================================================== */
 
 returnBoardButton.addEventListener(
     "click",
     () => {
+
+        questionAudio.pause();
+
+        questionAudio.currentTime =
+            0;
+
 
         if (
             selectedCell &&
@@ -945,6 +1104,9 @@ returnBoardButton.addEventListener(
         selectedCell =
             null;
 
+        currentQuestion =
+            null;
+
 
         if (
             answeredQuestions === 25
@@ -964,7 +1126,7 @@ returnBoardButton.addEventListener(
 
 
 /* ===================================================== */
-/* CONTINUAR */
+/* FIN DE RONDA */
 /* ===================================================== */
 
 continueButton.addEventListener(
@@ -975,10 +1137,6 @@ continueButton.addEventListener(
     }
 );
 
-
-/* ===================================================== */
-/* MARCADOR ENTRE RONDAS */
-/* ===================================================== */
 
 function showRoundSummary() {
 
@@ -1008,7 +1166,6 @@ function showRoundSummary() {
             <span class="summary-score">
                 ${team.score}
             </span>
-
         `;
 
 
@@ -1139,7 +1296,6 @@ function showFinalResults() {
                 <span class="summary-score">
                     ${team.score}
                 </span>
-
             `;
 
 
@@ -1149,11 +1305,6 @@ function showFinalResults() {
         }
     );
 
-
-    /*
-    Ya llegamos al final.
-    Eliminamos la partida guardada.
-    */
 
     clearSavedGame();
 
@@ -1194,7 +1345,6 @@ resetButton.addEventListener(
 
 
         if (!confirmation) {
-
             return;
         }
 
@@ -1207,7 +1357,7 @@ resetButton.addEventListener(
 
 
 /* ===================================================== */
-/* AL ABRIR LA PÁGINA */
+/* INICIO */
 /* ===================================================== */
 
 updateResumeButton();

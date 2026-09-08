@@ -1,52 +1,231 @@
 const round1Questions = [
     {
-        category: "Categoría 1",
+        category: "Yo te conozco",
         questions: [
-            { value: 100, question: "Pregunta 1 de Categoría 1", answer: "Respuesta 1" },
-            { value: 200, question: "Pregunta 2 de Categoría 1", answer: "Respuesta 2" },
-            { value: 300, question: "Pregunta 3 de Categoría 1", answer: "Respuesta 3" },
-            { value: 400, question: "Pregunta 4 de Categoría 1", answer: "Respuesta 4" },
-            { value: 500, question: "Pregunta 5 de Categoría 1", answer: "Respuesta 5" }
+            {
+                value: 100,
+                questionType: "image",
+                question: "assets/images/yo-te-conozco/100-fragmento.webp",
+
+                answerType: "image",
+                answer: "assets/images/yo-te-conozco/100-completa.jpg"
+            },
+            {
+                value: 200,
+                questionType: "text",
+                question: "Pregunta de prueba de 200",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 300,
+                questionType: "text",
+                question: "Pregunta de prueba de 300",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Pregunta de prueba de 400",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 500,
+                questionType: "text",
+                question: "Pregunta de prueba de 500",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            }
         ]
     },
+
     {
-        category: "Categoría 2",
+        category: "¿Estás seguro de que no se van a besar?",
         questions: [
-            { value: 100, question: "Pregunta 1 de Categoría 2", answer: "Respuesta 1" },
-            { value: 200, question: "Pregunta 2 de Categoría 2", answer: "Respuesta 2" },
-            { value: 300, question: "Pregunta 3 de Categoría 2", answer: "Respuesta 3" },
-            { value: 400, question: "Pregunta 4 de Categoría 2", answer: "Respuesta 4" },
-            { value: 500, question: "Pregunta 5 de Categoría 2", answer: "Respuesta 5" }
+            {
+                value: 100,
+                questionType: "text",
+                question: "Descripción de anime de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            },
+            {
+                value: 200,
+                questionType: "text",
+                question: "Descripción de anime de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            },
+            {
+                value: 300,
+                questionType: "text",
+                question: "Descripción de anime de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Descripción de anime de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            },
+            {
+                value: 500,
+                questionType: "text",
+                question: "Descripción de anime de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            }
         ]
     },
+
     {
-        category: "Categoría 3",
+        category: "Anime pero lo describe mi mamá",
         questions: [
-            { value: 100, question: "Pregunta 1 de Categoría 3", answer: "Respuesta 1" },
-            { value: 200, question: "Pregunta 2 de Categoría 3", answer: "Respuesta 2" },
-            { value: 300, question: "Pregunta 3 de Categoría 3", answer: "Respuesta 3" },
-            { value: 400, question: "Pregunta 4 de Categoría 3", answer: "Respuesta 4" },
-            { value: 500, question: "Pregunta 5 de Categoría 3", answer: "Respuesta 5" }
+            {
+                value: 100,
+                questionType: "text",
+                question: "Descripción hecha por mamá de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            },
+            {
+                value: 200,
+                questionType: "text",
+                question: "Descripción hecha por mamá de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            },
+            {
+                value: 300,
+                questionType: "text",
+                question: "Descripción hecha por mamá de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Descripción hecha por mamá de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            },
+            {
+                value: 500,
+                questionType: "text",
+                question: "Descripción hecha por mamá de prueba",
+
+                answerType: "text",
+                answer: "Anime de prueba"
+            }
         ]
     },
+
     {
-        category: "Categoría 4",
+        category: "Karaoke Night",
         questions: [
-            { value: 100, question: "Pregunta 1 de Categoría 4", answer: "Respuesta 1" },
-            { value: 200, question: "Pregunta 2 de Categoría 4", answer: "Respuesta 2" },
-            { value: 300, question: "Pregunta 3 de Categoría 4", answer: "Respuesta 3" },
-            { value: 400, question: "Pregunta 4 de Categoría 4", answer: "Respuesta 4" },
-            { value: 500, question: "Pregunta 5 de Categoría 4", answer: "Respuesta 5" }
+            {
+                value: 100,
+                questionType: "audio",
+                question: "assets/audio/karaoke-night/100.mp3",
+
+                answerType: "text",
+                answer: "Canción de prueba"
+            },
+            {
+                value: 200,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 300,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 500,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            }
         ]
     },
+
     {
-        category: "Categoría 5",
+        category: "Relleno como el de Naruto",
         questions: [
-            { value: 100, question: "Pregunta 1 de Categoría 5", answer: "Respuesta 1" },
-            { value: 200, question: "Pregunta 2 de Categoría 5", answer: "Respuesta 2" },
-            { value: 300, question: "Pregunta 3 de Categoría 5", answer: "Respuesta 3" },
-            { value: 400, question: "Pregunta 4 de Categoría 5", answer: "Respuesta 4" },
-            { value: 500, question: "Pregunta 5 de Categoría 5", answer: "Respuesta 5" }
+            {
+                value: 100,
+                questionType: "text",
+                question: "¿Cuál es el planeta más grande del sistema solar?",
+
+                answerType: "text",
+                answer: "Júpiter"
+            },
+            {
+                value: 200,
+                questionType: "text",
+                question: "Pregunta de cultura general",
+
+                answerType: "text",
+                answer: "Respuesta"
+            },
+            {
+                value: 300,
+                questionType: "text",
+                question: "Pregunta de cultura general",
+
+                answerType: "text",
+                answer: "Respuesta"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Pregunta de cultura general",
+
+                answerType: "text",
+                answer: "Respuesta"
+            },
+            {
+                value: 500,
+                questionType: "text",
+                question: "Pregunta de cultura general",
+
+                answerType: "text",
+                answer: "Respuesta"
+            }
         ]
     }
 ];
@@ -54,53 +233,232 @@ const round1Questions = [
 
 const round2Questions = [
     {
-        category: "Categoría 6",
+        category: "¿Pueden prender la luz?",
         questions: [
-            { value: 200, question: "Pregunta 1 de Categoría 6", answer: "Respuesta 1" },
-            { value: 400, question: "Pregunta 2 de Categoría 6", answer: "Respuesta 2" },
-            { value: 600, question: "Pregunta 3 de Categoría 6", answer: "Respuesta 3" },
-            { value: 800, question: "Pregunta 4 de Categoría 6", answer: "Respuesta 4" },
-            { value: 1000, question: "Pregunta 5 de Categoría 6", answer: "Respuesta 5" }
+            {
+                value: 200,
+                questionType: "image",
+                question: "assets/images/prendan-la-luz/200-silueta.png",
+
+                answerType: "image",
+                answer: "assets/images/prendan-la-luz/200-respuesta.png"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 600,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 800,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 1000,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            }
         ]
     },
+
     {
-        category: "Categoría 7",
+        category: "Karaoke Must Go On",
         questions: [
-            { value: 200, question: "Pregunta 1 de Categoría 7", answer: "Respuesta 1" },
-            { value: 400, question: "Pregunta 2 de Categoría 7", answer: "Respuesta 2" },
-            { value: 600, question: "Pregunta 3 de Categoría 7", answer: "Respuesta 3" },
-            { value: 800, question: "Pregunta 4 de Categoría 7", answer: "Respuesta 4" },
-            { value: 1000, question: "Pregunta 5 de Categoría 7", answer: "Respuesta 5" }
+            {
+                value: 200,
+                questionType: "audio",
+                question: "assets/audio/karaoke-must-go-on/200.mp3",
+
+                answerType: "text",
+                answer: "Canción de prueba"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 600,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 800,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 1000,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            }
         ]
     },
+
     {
-        category: "Categoría 8",
+        category: "¿Es un pájaro? ¿Es un avión?",
         questions: [
-            { value: 200, question: "Pregunta 1 de Categoría 8", answer: "Respuesta 1" },
-            { value: 400, question: "Pregunta 2 de Categoría 8", answer: "Respuesta 2" },
-            { value: 600, question: "Pregunta 3 de Categoría 8", answer: "Respuesta 3" },
-            { value: 800, question: "Pregunta 4 de Categoría 8", answer: "Respuesta 4" },
-            { value: 1000, question: "Pregunta 5 de Categoría 8", answer: "Respuesta 5" }
+            {
+                value: 200,
+                questionType: "text",
+                question: "Pregunta de superhéroes de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Pregunta de superhéroes de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 600,
+                questionType: "text",
+                question: "Pregunta de superhéroes de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 800,
+                questionType: "text",
+                question: "Pregunta de superhéroes de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 1000,
+                questionType: "text",
+                question: "Pregunta de superhéroes de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            }
         ]
     },
+
     {
-        category: "Categoría 9",
+        category: "¿No es eso, Bizarro?",
         questions: [
-            { value: 200, question: "Pregunta 1 de Categoría 9", answer: "Respuesta 1" },
-            { value: 400, question: "Pregunta 2 de Categoría 9", answer: "Respuesta 2" },
-            { value: 600, question: "Pregunta 3 de Categoría 9", answer: "Respuesta 3" },
-            { value: 800, question: "Pregunta 4 de Categoría 9", answer: "Respuesta 4" },
-            { value: 1000, question: "Pregunta 5 de Categoría 9", answer: "Respuesta 5" }
+            {
+                value: 200,
+                questionType: "image",
+                question: "assets/images/bizarro/200.jpg",
+
+                answerType: "text",
+                answer: "Referencia de prueba"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 600,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 800,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            },
+            {
+                value: 1000,
+                questionType: "text",
+                question: "Pregunta temporal",
+
+                answerType: "text",
+                answer: "Respuesta temporal"
+            }
         ]
     },
+
     {
-        category: "Categoría 10",
+        category: "Idols de corazón",
         questions: [
-            { value: 200, question: "Pregunta 1 de Categoría 10", answer: "Respuesta 1" },
-            { value: 400, question: "Pregunta 2 de Categoría 10", answer: "Respuesta 2" },
-            { value: 600, question: "Pregunta 3 de Categoría 10", answer: "Respuesta 3" },
-            { value: 800, question: "Pregunta 4 de Categoría 10", answer: "Respuesta 4" },
-            { value: 1000, question: "Pregunta 5 de Categoría 10", answer: "Respuesta 5" }
+            {
+                value: 200,
+                questionType: "text",
+                question: "Pregunta flexible de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 400,
+                questionType: "text",
+                question: "Pregunta flexible de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 600,
+                questionType: "text",
+                question: "Pregunta flexible de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 800,
+                questionType: "text",
+                question: "Pregunta flexible de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            },
+            {
+                value: 1000,
+                questionType: "text",
+                question: "Pregunta flexible de prueba",
+
+                answerType: "text",
+                answer: "Respuesta de prueba"
+            }
         ]
     }
 ];
