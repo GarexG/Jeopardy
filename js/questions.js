@@ -51,42 +51,42 @@ const round1Questions = [
             {
                 value: 100,
                 questionType: "text",
-                question: "Descripción de anime de prueba",
+                question: "Un grupo de chicos semidesnudos se reúne constantemente para mojarse juntos, mientras dos amigos de la infancia intentan resolver su tensión emocional compitiendo por ver quién aguanta más dentro del agua",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "Free!"
             },
             {
                 value: 200,
                 questionType: "text",
-                question: "Descripción de anime de prueba",
+                question: "Un chico cualquiera le genera sindrome de inferioridad a su amigo de la infancia lo cual crea una gran cantidad de tension entre ellos que los lleva a competir por el puesto del mejor junto con los otros miembros de su clase",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "Boku no Hero Academia"
             },
             {
                 value: 300,
                 questionType: "text",
-                question: "Descripción de anime de prueba",
+                question: "Chicos obsesionados por devorarse entre si compiten para convertirse en el mejor manejador de las bolas",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "Blue Lock"
             },
             {
                 value: 400,
                 questionType: "text",
-                question: "Descripción de anime de prueba",
+                question: "Un hombre aparentemente perfecto, atractivo y exitoso es incapaz de superar a su novio de la preparatoria, quien lo abandonó para perseguir sus propios ideales",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "Jujutsu Kaisen"
             },
             {
                 value: 500,
                 questionType: "text",
-                question: "Descripción de anime de prueba",
+                question: "Un pelirrojo le enseña a un extranjero a montar, pero comienza a sentirse inseguro cuando otros hombres muestran demasiado interés en montar con él",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "Sk8 Infinity"
             }
         ]
     },
@@ -97,42 +97,42 @@ const round1Questions = [
             {
                 value: 100,
                 questionType: "text",
-                question: "Descripción hecha por mamá de prueba",
+                question: "Un muchacho pierde sus huevos por andar discutiendo con una muchacha sobre cosas que ninguno de los dos puede comprobar",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "DanDaDan"
             },
             {
                 value: 200,
                 questionType: "text",
-                question: "Descripción hecha por mamá de prueba",
+                question: "Un joven de escasos recursos consigue trabajo en el gobierno con la única motivación de tocar una teta",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "ChainsawMan"
             },
             {
                 value: 300,
                 questionType: "text",
-                question: "Descripción hecha por mamá de prueba",
+                question: "Un muchacho termina viviendo en un basurero y descubre que las cosas que la gente tira tienen más valor que las personas que las tiran.",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "Gachiakuta"
             },
             {
                 value: 400,
                 questionType: "text",
-                question: "Descripción hecha por mamá de prueba",
+                question: "Una muchacha con problemas de salud decide meterse en la vida de un muchacho con traumas para dejarlo mas traumado al final",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "Shigatsu wa Kimi no Uso"
             },
             {
                 value: 500,
                 questionType: "text",
-                question: "Descripción hecha por mamá de prueba",
+                question: "Un grupo de niños descubre que sacar buenas calificaciones no necesariamente les garantiza un buen futuro, por lo que deciden dejar de estudiar y escapar de su casa.",
 
                 answerType: "text",
-                answer: "Anime de prueba"
+                answer: "The Promised Neverland"
             }
         ]
     },
@@ -184,47 +184,47 @@ const round1Questions = [
     },
 
     {
-        category: "Relleno como el de Naruto",
+        category: "Otaku Global",
         questions: [
             {
                 value: 100,
                 questionType: "text",
-                question: "¿Cuál es el planeta más grande del sistema solar?",
+                question: "¿Cuáles son los 5 tipos de sabores primarios?",
 
                 answerType: "text",
-                answer: "Júpiter"
+                answer: "Dulce, Amargo, Ácido, Salado y Umami"
             },
             {
                 value: 200,
                 questionType: "text",
-                question: "Pregunta de cultura general",
+                question: "¿Cuál es tercer planeta en el sistema solar?",
 
                 answerType: "text",
-                answer: "Respuesta"
+                answer: "La Tierra"
             },
             {
                 value: 300,
                 questionType: "text",
-                question: "Pregunta de cultura general",
+                question: "¿Quién escribió La Odisea?",
 
                 answerType: "text",
-                answer: "Respuesta"
+                answer: "Homero"
             },
             {
                 value: 400,
                 questionType: "text",
-                question: "Pregunta de cultura general",
+                question: "¿Cuándo empezó la Primera Guerra Mundial?",
 
                 answerType: "text",
-                answer: "Respuesta"
+                answer: "1914"
             },
             {
                 value: 500,
                 questionType: "text",
-                question: "Pregunta de cultura general",
+                question: "¿En qué año murió Freddie Mercury?",
 
                 answerType: "text",
-                answer: "Respuesta"
+                answer: "1991"
             }
         ]
     }
@@ -325,93 +325,93 @@ const round2Questions = [
     },
 
     {
-        category: "¿Es un pájaro? ¿Es un avión?",
+        category: "Reencarne como una serie de Netflix",
         questions: [
             {
                 value: 200,
                 questionType: "text",
-                question: "Pregunta de superhéroes de prueba",
+                question: "¡Gané un viaje de lujo en una apuesta y conocí al amor de mi vida, pero parece que no hay suficiente espacio para los dos en una tabla de madera!",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "Titanic"
             },
             {
                 value: 400,
                 questionType: "text",
-                question: "Pregunta de superhéroes de prueba",
+                question: "¡Me había retirado de mi trabajo como asesino legendario, pero unos delincuentes mataron a mi mascota y ahora tendré que enfrentarme nuevamente a mi antiguo gremio!",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "John Wick"
             },
             {
                 value: 600,
                 questionType: "text",
-                question: "Pregunta de superhéroes de prueba",
+                question: "¡Me diagnosticaron una enfermedad terminal, así que decidí utilizar mis conocimientos de química para convertirme en el criminal más poderoso de mi ciudad junto a mi antiguo alumno!",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "Breaking Bad"
             },
             {
                 value: 800,
                 questionType: "text",
-                question: "Pregunta de superhéroes de prueba",
+                question: "¡Poseo una habilidad de diagnóstico superior a la de todos mis compañeros, pero mi dependencia de las pociones y mi desprecio por las normas hacen que mi superiora constantemente quiera despedirme!",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "Dr. House"
             },
             {
                 value: 1000,
                 questionType: "text",
-                question: "Pregunta de superhéroes de prueba",
+                question: "¡Una celebridad asesinó accidentalmente a mi novia, así que decidí unirme a un grupo de inadaptados para destruir la industria del entretenimiento más poderosa del mundo, cuyos integrantes son venerados como dioses!",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "The Boys"
             }
         ]
     },
 
     {
-        category: "¿No es eso, Bizarro?",
+        category: "En algun lugar te he visto...",
         questions: [
             {
                 value: 200,
                 questionType: "image",
-                question: "assets/images/bizarro/200.jpg",
+                question: "assets/images/en-algun-lugar-te-he-visto/200.jpg",
 
                 answerType: "text",
-                answer: "Referencia de prueba"
+                answer: "Naruto"
             },
             {
                 value: 400,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "image",
+                question: "assets/images/en-algun-lugar-te-he-visto/400.jpg",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Attack on Titan"
             },
             {
                 value: 600,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "image",
+                question: "assets/images/en-algun-lugar-te-he-visto/600.webp",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Fairy Tail"
             },
             {
                 value: 800,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "image",
+                question: "assets/images/en-algun-lugar-te-he-visto/800.webp",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Fullmetal Alchemist"
             },
             {
                 value: 1000,
-                questionType: "text",
-                question: "Pregunta temporal",
+                questionType: "image",
+                question: "assets/images/en-algun-lugar-te-he-visto/1000.jpg",
 
                 answerType: "text",
-                answer: "Respuesta temporal"
+                answer: "Jojos Bizzare Adventure"
             }
         ]
     },
