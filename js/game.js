@@ -257,19 +257,29 @@ function updateResumeButton() {
 
 function showScreen(screen) {
 
-    document
-        .querySelectorAll(".screen")
-        .forEach(section => {
+    // Limpiar animaciones de puntuación pendientes
 
-            section.classList.remove(
-                "active"
-            );
-        });
+    document.querySelectorAll(".score").forEach(element => {
 
+        element.classList.remove(
+            "score-increase",
+            "score-decrease"
+        );
 
-    screen.classList.add(
-        "active"
-    );
+        element.onanimationend = null;
+    });
+
+    // Ocultar todas las pantallas
+
+    document.querySelectorAll(".screen").forEach(section => {
+
+        section.classList.remove("active");
+
+    });
+
+    // Mostrar la pantalla correspondiente
+
+    screen.classList.add("active");
 }
 
 
@@ -579,20 +589,43 @@ function createScoreboard() {
 }
 
 
-function changeScore(
-    teamIndex,
-    amount
-) {
+function changeScore(teamIndex, amount) {
 
-    teams[teamIndex].score +=
-        amount;
+    teams[teamIndex].score += amount;
 
-
-    document.getElementById(
+    const scoreElement = document.getElementById(
         `score-${teamIndex}`
-    ).textContent =
+    );
+
+    scoreElement.textContent =
         teams[teamIndex].score;
 
+    // Reiniciar animaciones anteriores
+
+    scoreElement.classList.remove(
+        "score-increase",
+        "score-decrease"
+    );
+
+    void scoreElement.offsetWidth;
+
+    // Determinar la animación correspondiente
+
+    const animationClass = amount > 0
+        ? "score-increase"
+        : "score-decrease";
+
+    // Aplicar animación
+
+    scoreElement.classList.add(animationClass);
+
+    // Eliminar la clase cuando termine la animación
+
+    scoreElement.onanimationend = () => {
+        scoreElement.classList.remove(animationClass);
+    };
+
+    // Guardar partida
 
     saveGame();
 }
@@ -872,7 +905,7 @@ function openQuestion(
     category,
     question
 ) {
-
+    playSound("question");
     resetQuestionMedia();
 
 
@@ -996,7 +1029,7 @@ showAnswerButton.addEventListener(
     () => {
 
         questionAudio.pause();
-
+        playSound("reveal");
 
         answerContainer.classList.remove(
             "hidden"
@@ -1139,49 +1172,14 @@ continueButton.addEventListener(
 
 
 function showRoundSummary() {
+    playSound("roundEnd");
 
-    summaryScores.innerHTML =
-        "";
+    renderRanking(summaryScores);
 
-
-    teams.forEach(team => {
-
-        const teamRow =
-            document.createElement(
-                "div"
-            );
-
-
-        teamRow.classList.add(
-            "summary-team"
-        );
-
-
-        teamRow.innerHTML = `
-
-            <span>
-                ${team.name}
-            </span>
-
-            <span class="summary-score">
-                ${team.score}
-            </span>
-        `;
-
-
-        summaryScores.appendChild(
-            teamRow
-        );
-    });
-
-
-    if (
-        currentRound === 1
-    ) {
+    if (currentRound === 1) {
 
         summaryTitle.textContent =
             "FIN DE LA RONDA 1";
-
 
         nextRoundButton.textContent =
             "IR A RONDA 2";
@@ -1191,15 +1189,11 @@ function showRoundSummary() {
         summaryTitle.textContent =
             "FIN DE LA RONDA 2";
 
-
         nextRoundButton.textContent =
             "VER RESULTADOS";
     }
 
-
-    showScreen(
-        roundSummaryScreen
-    );
+    showScreen(roundSummaryScreen);
 }
 
 
@@ -1214,7 +1208,7 @@ nextRoundButton.addEventListener(
         if (
             currentRound === 1
         ) {
-
+            playSound("click");
             currentRound = 2;
 
             currentQuestionValue =
@@ -1251,67 +1245,31 @@ nextRoundButton.addEventListener(
 
 function showFinalResults() {
 
-    finalScores.innerHTML =
-        "";
-
-
-    const ranking =
-        [...teams].sort(
-            (a, b) =>
-                b.score - a.score
-        );
-
-
-    ranking.forEach(
-        (team, index) => {
-
-            const teamRow =
-                document.createElement(
-                    "div"
-                );
-
-
-            teamRow.classList.add(
-                "summary-team"
-            );
-
-
-            if (
-                index === 0
-            ) {
-
-                teamRow.classList.add(
-                    "winner"
-                );
-            }
-
-
-            teamRow.innerHTML = `
-
-                <span>
-                    ${index + 1}º
-                    ${team.name}
-                </span>
-
-                <span class="summary-score">
-                    ${team.score}
-                </span>
-            `;
-
-
-            finalScores.appendChild(
-                teamRow
-            );
-        }
+    const winners = renderRanking(
+        finalScores,
+        true
     );
 
+    const finalTitle =
+        document.getElementById("finalTitle");
+
+    if (winners.length > 1) {
+
+        finalTitle.textContent =
+            "¡TENEMOS UN EMPATE!";
+
+    } else {
+
+        finalTitle.textContent =
+            "¡TENEMOS GANADOR!";
+    }
 
     clearSavedGame();
 
+    showScreen(finalScreen);
 
-    showScreen(
-        finalScreen
-    );
+    launchConfetti();
+    playSound("victory");
 }
 
 
@@ -1361,3 +1319,391 @@ resetButton.addEventListener(
 /* ===================================================== */
 
 updateResumeButton();
+/* ===================================================== */
+/* ANIMACIÓN DEL REPRODUCTOR DE AUDIO                    */
+/* ===================================================== */
+
+questionAudio.addEventListener("playing", () => {
+
+    questionAudioContainer.classList.add("playing");
+
+});
+
+questionAudio.addEventListener("pause", () => {
+
+    questionAudioContainer.classList.remove("playing");
+
+});
+
+questionAudio.addEventListener("ended", () => {
+
+    questionAudioContainer.classList.remove("playing");
+
+});
+
+questionAudio.addEventListener("emptied", () => {
+
+    questionAudioContainer.classList.remove("playing");
+
+});
+/* ===================================================== */
+/* GENERAR CLASIFICACIÓN DE EQUIPOS                      */
+/* ===================================================== */
+
+function renderRanking(container, isFinal = false) {
+
+    container.innerHTML = "";
+
+    // Ordenar sin modificar el arreglo original
+
+    const ranking = teams.map((team, index) => ({
+        ...team,
+        originalIndex: index
+    })).sort((a, b) => b.score - a.score);
+
+    const highestScore = ranking[0]?.score;
+
+    const winners = ranking.filter(
+        team => team.score === highestScore
+    );
+
+    container.classList.toggle(
+        "multiple-winners",
+        isFinal && winners.length > 1
+    );
+
+    let position = 1;
+
+    ranking.forEach((team, index) => {
+
+        // Los equipos empatados comparten posición
+
+        if (
+            index > 0 &&
+            team.score !== ranking[index - 1].score
+        ) {
+            position = index + 1;
+        }
+
+        const teamRow = document.createElement("div");
+
+        teamRow.classList.add("summary-team");
+
+        // Conservar el color original del equipo
+
+        teamRow.style.setProperty(
+            "--team-color",
+            `var(--team-${team.originalIndex + 1})`
+        );
+
+        // Destacar primer lugar
+
+        if (team.score === highestScore) {
+
+            teamRow.classList.add("leader");
+
+            if (isFinal) {
+                teamRow.classList.add("winner");
+            }
+        }
+
+        teamRow.innerHTML = `
+            <div class="summary-team-info">
+
+                <span class="rank-number">
+                    ${position}
+                </span>
+
+                <span class="summary-name"></span>
+
+            </div>
+
+            <span class="summary-score"></span>
+        `;
+
+        teamRow.querySelector(
+            ".summary-name"
+        ).textContent = team.name;
+
+        teamRow.querySelector(
+            ".summary-score"
+        ).textContent = team.score.toLocaleString("es-MX");
+
+        container.appendChild(teamRow);
+    });
+
+    return winners;
+}
+/* ===================================================== */
+/* CONFETI DE CELEBRACIÓN                                */
+/* ===================================================== */
+
+function launchConfetti() {
+
+    const container =
+        document.getElementById("confettiContainer");
+
+    container.innerHTML = "";
+
+    if (
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+        return;
+    }
+
+    const colors = [
+        "#A979A9",
+        "#C69BC4",
+        "#DFC3DF",
+        "#FFFFFF",
+        "#CE92AD",
+        "#9393C5",
+        "#A68CBF"
+    ];
+
+    for (let i = 0; i < 120; i++) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.classList.add("confetti-piece");
+
+        piece.style.left =
+            `${Math.random() * 100}%`;
+
+        piece.style.backgroundColor =
+            colors[
+                Math.floor(
+                    Math.random() * colors.length
+                )
+            ];
+
+        piece.style.width =
+            `${6 + Math.random() * 8}px`;
+
+        piece.style.height =
+            `${10 + Math.random() * 12}px`;
+
+        piece.style.animationDuration =
+            `${3 + Math.random() * 4}s`;
+
+        piece.style.animationDelay =
+            `${Math.random() * 3}s`;
+
+        piece.style.setProperty(
+            "--drift",
+            `${Math.random() * 300 - 150}px`
+        );
+
+        piece.style.setProperty(
+            "--rotation",
+            `${Math.random() * 1440 - 720}deg`
+        );
+
+        if (Math.random() > 0.7) {
+            piece.style.borderRadius = "50%";
+        }
+
+        piece.addEventListener(
+            "animationend",
+            () => piece.remove(),
+            { once: true }
+        );
+
+        container.appendChild(piece);
+    }
+}
+/* ===================================================== */
+/* SISTEMA DE EFECTOS DE SONIDO                          */
+/* ===================================================== */
+
+const soundToggle =
+    document.getElementById("soundToggle");
+
+const soundIcon =
+    document.getElementById("soundIcon");
+
+
+let soundMuted =
+    localStorage.getItem("jeopardySoundMuted") === "true";
+
+
+let currentSound = null;
+
+
+/* ARCHIVOS DE AUDIO */
+
+const soundEffects = {
+
+    click: new Audio(
+        "assets/audio/sfx/click.mp3"
+    ),
+
+    question: new Audio(
+        "assets/audio/sfx/question.wav"
+    ),
+
+    reveal: new Audio(
+        "assets/audio/sfx/reveal.wav"
+    ),
+
+    roundEnd: new Audio(
+        "assets/audio/sfx/round-end.mp3"
+    ),
+
+    victory: new Audio(
+        "assets/audio/sfx/victory.mp3"
+    )
+};
+
+
+/* VOLUMEN INDIVIDUAL */
+
+soundEffects.click.volume = 0.30;
+
+soundEffects.question.volume = 0.50;
+
+soundEffects.reveal.volume = 0.50;
+
+soundEffects.roundEnd.volume = 0.60;
+
+soundEffects.victory.volume = 0.70;
+
+
+/* PRECARGAR SONIDOS */
+
+Object.values(soundEffects).forEach(sound => {
+
+    sound.preload = "auto";
+
+});
+
+
+/* REPRODUCIR EFECTO */
+
+function playSound(soundName) {
+
+    if (soundMuted) {
+        return;
+    }
+
+    const sound = soundEffects[soundName];
+
+    if (!sound) {
+        return;
+    }
+
+    // Evitar que se acumulen los sonidos
+
+    if (currentSound) {
+
+        currentSound.pause();
+        currentSound.currentTime = 0;
+    }
+
+    currentSound = sound;
+
+    sound.currentTime = 0;
+
+    sound.play().catch(error => {
+
+        console.warn(
+            "No se pudo reproducir el efecto:",
+            soundName,
+            error
+        );
+
+    });
+}
+
+
+/* ACTUALIZAR BOTÓN */
+
+function updateSoundButton() {
+
+    soundIcon.textContent =
+        soundMuted ? "🔇" : "🔊";
+
+    soundToggle.classList.toggle(
+        "muted",
+        soundMuted
+    );
+
+    soundToggle.title =
+        soundMuted
+            ? "Activar efectos"
+            : "Silenciar efectos";
+
+    soundToggle.setAttribute(
+        "aria-label",
+        soundToggle.title
+    );
+
+    soundToggle.setAttribute(
+        "aria-pressed",
+        String(soundMuted)
+    );
+}
+
+
+/* ACTIVAR O SILENCIAR */
+
+soundToggle.addEventListener("click", () => {
+
+    soundMuted = !soundMuted;
+
+    localStorage.setItem(
+        "jeopardySoundMuted",
+        String(soundMuted)
+    );
+
+    if (soundMuted && currentSound) {
+
+        currentSound.pause();
+        currentSound.currentTime = 0;
+
+        currentSound = null;
+    }
+
+    updateSoundButton();
+
+    if (!soundMuted) {
+
+        playSound("click");
+
+    }
+});
+
+
+/* CARGAR PREFERENCIA */
+
+updateSoundButton();
+/* SONIDO GENERAL DE BOTONES */
+
+document.addEventListener("click", event => {
+
+    const button = event.target.closest("button");
+
+    if (!button || button.disabled) {
+        return;
+    }
+
+    if (
+        button.matches(
+            "#soundToggle, " +
+            "#showAnswerButton, " +
+            "#continueButton, " +
+            "#nextRoundButton, " +
+            "#playAudioButton, " +
+            ".add-score, " +
+            ".subtract-score"
+        )
+    ) {
+        return;
+    }
+
+    playSound("click");
+
+});

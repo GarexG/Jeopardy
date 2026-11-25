@@ -18,7 +18,30 @@
 
     <section id="startScreen" class="screen active">
 
-        <h1 class="logo">JEOPARDY</h1>
+    <div class="start-decoration" aria-hidden="true">
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+    </div>
+
+    <div class="start-content">
+
+        <span class="start-subtitle">
+            IDOLLY PROJECT PRESENTA
+        </span>
+
+        <div class="logo-container">
+            <h1 class="logo">JEOPARDY!</h1>
+        </div>
+
+        <span class="edition-label">
+            IDOL EDITION
+        </span>
 
         <p>¿Están listos?</p>
 
@@ -30,7 +53,9 @@
             CONTINUAR PARTIDA
         </button>
 
-    </section>
+    </div>
+
+</section>
 
 
     <!-- ========================= -->
@@ -38,7 +63,16 @@
     <!-- ========================= -->
 
     <section id="setupScreen" class="screen">
-
+        <div class="start-decoration" aria-hidden="true">
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+        </div>
         <h2>CONFIGURACIÓN</h2>
 
         <p>¿Cuántos equipos van a jugar?</p>
@@ -69,12 +103,26 @@
     <!-- ========================= -->
 
     <section id="gameScreen" class="screen">
+        <div class="start-decoration" aria-hidden="true">
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+        </div>
 
         <header class="game-header">
 
             <h2 id="roundTitle">
                 RONDA 1
             </h2>
+
+            <span class="game-brand">
+                IDOLLY PROJECT
+            </span>
 
             <button id="resetButton" class="secondary-button">
                 Reiniciar
@@ -104,6 +152,16 @@
     <!-- ========================= -->
 
     <section id="questionScreen" class="screen">
+        <div class="start-decoration" aria-hidden="true">
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+        </div>
 
         <div class="question-info">
 
@@ -133,14 +191,34 @@
             <!-- AUDIO DE PREGUNTA -->
 
             <div id="questionAudioContainer"
-                 class="audio-question question-media hidden">
+                class="audio-question question-media hidden">
 
-                <button id="playAudioButton"
-                        class="audio-play-button">
+                <div class="music-icon">♫</div>
 
-                    ▶ REPRODUCIR AUDIO
+                    <div class="audio-visualizer" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
-                </button>
+                    <button id="playAudioButton"
+                            class="audio-play-button">
+
+                        ▶ REPRODUCIR AUDIO
+
+                    </button>
 
                 <audio id="questionAudio"></audio>
 
@@ -197,24 +275,43 @@
     <!-- ENTRE RONDAS -->
     <!-- ========================= -->
 
-    <section id="roundSummaryScreen" class="screen">
+   <section id="roundSummaryScreen" class="screen">
 
-        <h2 id="summaryTitle">
-            FIN DE LA RONDA 1
-        </h2>
+    <div class="start-decoration" aria-hidden="true">
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+    </div>
 
-        <div id="summaryScores"
-             class="summary-scores">
-        </div>
+    <span class="results-brand">
+        IDOLLY PROJECT
+    </span>
 
-        <button id="nextRoundButton"
-                class="main-button">
+    <h2 id="summaryTitle">
+        FIN DE LA RONDA 1
+    </h2>
 
-            IR A RONDA 2
+    <p class="results-subtitle">
+        Así van los equipos
+    </p>
 
-        </button>
+    <div id="summaryScores"
+         class="summary-scores">
+    </div>
 
-    </section>
+    <button id="nextRoundButton"
+            class="main-button">
+
+        IR A RONDA 2
+
+    </button>
+
+</section>
 
 
     <!-- ========================= -->
@@ -223,22 +320,70 @@
 
     <section id="finalScreen" class="screen">
 
-        <h2>
-            RESULTADOS FINALES
-        </h2>
+    <div class="start-decoration" aria-hidden="true">
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+    </div>
 
-        <div id="finalScores"
-             class="summary-scores">
-        </div>
+    <div id="confettiContainer"
+         class="confetti-container"
+         aria-hidden="true">
+    </div>
 
-        <button id="newGameButton"
-                class="main-button">
+    <span class="results-brand">
+        IDOLLY PROJECT
+    </span>
 
-            NUEVA PARTIDA
+    <div class="winner-crown" aria-hidden="true">
+        <svg viewBox="0 0 100 80">
+            <path d="M10 20 L30 40 L50 8 L70 40 L90 20
+                     L80 65 H20 Z"
+                  fill="currentColor"
+                  stroke="white"
+                  stroke-width="4"
+                  stroke-linejoin="round"/>
 
-        </button>
+            <rect x="20" y="68"
+                  width="60" height="7"
+                  rx="3"
+                  fill="currentColor"/>
+        </svg>
+    </div>
 
-    </section>
+    <h2 id="finalTitle">
+        ¡TENEMOS GANADOR!
+    </h2>
+
+    <div id="finalScores"
+         class="summary-scores">
+    </div>
+
+    <button id="newGameButton"
+            class="main-button">
+
+        NUEVA PARTIDA
+
+    </button>
+
+</section>
+<!-- CONTROL DE EFECTOS DE SONIDO -->
+
+<button id="soundToggle"
+        class="sound-toggle"
+        type="button"
+        title="Silenciar efectos"
+        aria-label="Silenciar efectos"
+        aria-pressed="false">
+
+    <span id="soundIcon">🔊</span>
+
+</button>
 
 
     <script src="js/questions.js"></script>
