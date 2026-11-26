@@ -421,43 +421,43 @@ const round2Questions = [
         questions: [
             {
                 value: 200,
-                questionType: "text",
-                question: "Pregunta flexible de prueba",
+                questionType: "image",
+                question: "assets/images/idols/umi.png",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "Umi"
             },
             {
                 value: 400,
-                questionType: "text",
-                question: "Pregunta flexible de prueba",
+                questionType: "image",
+                question: "assets/images/idols/kotori.png",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "Kotori"
             },
             {
                 value: 600,
-                questionType: "text",
-                question: "Pregunta flexible de prueba",
+                questionType: "audio",
+                question: "assets/audio/idols/nobrandgirls.mp3",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "No brand girls"
             },
             {
                 value: 800,
-                questionType: "text",
-                question: "Pregunta flexible de prueba",
+                questionType: "audio",
+                question: "assets/audio/idols/onetwojump.mp3",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "Natsuiro egao de 1,2 jump"
             },
             {
                 value: 1000,
                 questionType: "text",
-                question: "Pregunta flexible de prueba",
+                question: "¿En que año se emitió por primera vez el anime Love Live?",
 
                 answerType: "text",
-                answer: "Respuesta de prueba"
+                answer: "2013"
             }
         ]
     }
